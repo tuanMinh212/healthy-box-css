@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Box Cafe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/phosphor.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><span class="ph ph-leaf"></span> Healthy Box Cafe</div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Trang chủ</a></li>
+          <li><a href="story.html">Chuyện của Healthy Box</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="membership.html">Thành viên</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero fade-in-up">
+      <div class="hero-content">
+        <h1>Healthy Box Cafe</h1>
+        <div class="tagline">Không gian xanh – Năng lượng tích cực</div>
+        <div class="desc">Healthy Box Cafe là nơi bạn tìm thấy sự cân bằng giữa hương vị tuyệt vời và sức khỏe. Chúng tôi mang đến trải nghiệm cà phê, nước ép, matcha và món tráng miệng healthy trong không gian sang trọng, tinh tế.</div>
+        <div class="hero-cta">
+          <a href="menu.html" class="btn-main scale-in">Khám phá Menu</a>
+        </div>
+      </div>
+      <div class="hero-image scale-in">
+        <img src="images/healthy-placeholder.png" alt="ảnh đồ uống healthy ở đây">
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="fade-in-up">
+      <div class="section-title">Vì sao chọn Healthy Box Cafe?</div>
+      <div class="features">
+        <div class="feature fade-in-up">
+          <div class="feature-icon ph ph-heartbeat"></div>
+          <div class="feature-title">Sống khỏe mỗi ngày</div>
+          <div class="feature-desc">Nguyên liệu organic, không chất bảo quản, tốt cho sức khỏe.</div>
+        </div>
+        <div class="feature fade-in-up">
+          <div class="feature-icon ph ph-cup"></div>
+          <div class="feature-title">Hương vị tinh tế</div>
+          <div class="feature-desc">Cà phê, matcha, nước ép, tráng miệng được pha chế bởi barista chuyên nghiệp.</div>
+        </div>
+        <div class="feature fade-in-up">
+          <div class="feature-icon ph ph-plant"></div>
+          <div class="feature-title">Không gian xanh</div>
+          <div class="feature-desc">Thiết kế tối giản, nhiều cây xanh, ánh sáng tự nhiên, thư giãn tuyệt đối.</div>
+        </div>
+        <div class="feature fade-in-up">
+          <div class="feature-icon ph ph-users"></div>
+          <div class="feature-title">Cộng đồng truyền cảm hứng</div>
+          <div class="feature-desc">Nơi gặp gỡ, kết nối và lan tỏa lối sống lành mạnh.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Highlight Section -->
+    <section class="fade-in-up">
+      <div class="section-title">Sản phẩm nổi bật</div>
+      <div class="products-highlight">
+        <div class="product-card scale-in">
+          <img src="images/healthy-placeholder.png" alt="Cà phê sữa hạnh nhân">
+          <div class="product-name">Cà phê sữa hạnh nhân</div>
+          <div class="product-desc">Sữa hạnh nhân organic, ít đường, vị béo nhẹ, tốt cho tim mạch.</div>
+          <div class="product-price">45.000đ</div>
+          <a href="menu.html" class="btn-secondary scale-in">Xem chi tiết</a>
+        </div>
+        <div class="product-card scale-in">
+          <img src="images/healthy-placeholder.png" alt="Matcha latte">
+          <div class="product-name">Matcha latte</div>
+          <div class="product-desc">Matcha Nhật Bản, sữa hạnh nhân, vị ngọt thanh, giàu chất chống oxy hóa.</div>
+          <div class="product-price">52.000đ</div>
+          <a href="menu.html" class="btn-secondary scale-in">Xem chi tiết</a>
+        </div>
+        <div class="product-card scale-in">
+          <img src="images/healthy-placeholder.png" alt="Nước ép rau xanh">
+          <div class="product-name">Nước ép rau xanh</div>
+          <div class="product-desc">Cải xoăn, rau bina, táo, chanh, gừng – detox cơ thể, tăng sức đề kháng.</div>
+          <div class="product-price">55.000đ</div>
+          <a href="menu.html" class="btn-secondary scale-in">Xem chi tiết</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="fade-in-up" id="feedback-section">
+      <div class="section-title">Đóng góp ý kiến của bạn</div>
+      <form id="feedback-form" class="scale-in" style="max-width:400px;margin:0 auto;">
+        <div style="margin-bottom:1em;">
+          <label>Giới tính:</label><br>
+          <label><input type="radio" name="gender" value="Nam" required> Nam</label>
+          <label style="margin-left:1em;"><input type="radio" name="gender" value="Nữ"> Nữ</label>
+        </div>
+        <div style="margin-bottom:1em;">
+          <label for="age">Số tuổi:</label><br>
+          <input type="number" id="age" name="age" min="1" max="120" required style="width:100%;padding:0.5em;">
+        </div>
+        <div style="margin-bottom:1em;">
+          <label for="feedback">Đóng góp ý kiến:</label><br>
+          <textarea id="feedback" name="feedback" rows="4" required style="width:100%;padding:0.5em;"></textarea>
+        </div>
+        <button type="submit" class="btn-main scale-in">Gửi ý kiến</button>
+      </form>
+      <div id="thankyou-message" style="display:none;text-align:center;font-size:1.2em;color:green;margin-top:1em;">Cảm ơn bạn đã đóng góp ý kiến!</div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in-up">
+      <div class="section-title">Liên hệ với chúng tôi</div>
+      <div style="text-align:center;">
+        <p>Email: <a href="mailto:info@healthyboxcafe.com">info@healthyboxcafe.com</a></p>
+        <p>Instagram: <a href="https://instagram.com/healthyboxcafe" target="_blank">@healthyboxcafe</a></p>
+        <p>Địa chỉ: 123 Green Street, Quận 1, TP.HCM</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-social">
+      <a href="https://instagram.com/healthyboxcafe" target="_blank"><span class="ph ph-instagram-logo"></span></a>
+      <a href="https://facebook.com/healthyboxcafe" target="_blank"><span class="ph ph-facebook-logo"></span></a>
+      <a href="https://tiktok.com/@healthyboxcafe" target="_blank"><span class="ph ph-tiktok-logo"></span></a>
+    </div>
+    <div class="footer-copy">&copy; 2024 Healthy Box Cafe. All rights reserved.</div>
+  </footer>
+  <script>
+    // Intersection Observer cho animation xuất hiện khi cuộn tới
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in-up, .fade-in, .scale-in').forEach(el => {
+      observer.observe(el);
+    });
+    // Feedback form submit handler
+    const feedbackForm = document.getElementById('feedback-form');
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        feedbackForm.style.display = 'none';
+        document.getElementById('thankyou-message').style.display = 'block';
+      });
+    }
+  </script>
+  <!-- Messenger Chat Plugin -->
+  <div id="fb-root"></div>
+  <div id="fb-customer-chat" class="fb-customerchat"></div>
+  <script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "100948892871995"); // Thay bằng page_id của bạn nếu khác
+    chatbox.setAttribute("attribution", "biz_inbox");
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml            : true,
+        version          : 'v19.0'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+</body>
+</html> 
