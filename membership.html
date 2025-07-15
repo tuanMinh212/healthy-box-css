@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chính sách thành viên - Healthy Box Cafe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/phosphor.css">
+  <style>
+    .membership-hero {
+      background: linear-gradient(120deg, #C8E6C9 60%, #fff 100%);
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0 2rem 2rem;
+      margin-bottom: 2vw;
+      position: relative;
+      overflow: hidden;
+    }
+    .membership-hero-content {
+      max-width: 600px;
+      text-align: center;
+      z-index: 2;
+    }
+    .membership-hero-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #388E3C;
+      margin-bottom: 0.7rem;
+    }
+    .membership-hero-desc {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .membership-tiers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3vw;
+    }
+    .tier {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px 0 rgba(129,199,132,0.08);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .tier:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px 0 rgba(129,199,132,0.12);
+    }
+    .tier.featured {
+      border: 2px solid #FFD700;
+      transform: scale(1.05);
+    }
+    .tier-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .tier.bronze .tier-icon { color: #b08d57; }
+    .tier.silver .tier-icon { color: #b0b0b0; }
+    .tier.gold .tier-icon { color: #FFD700; }
+    .tier h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #388E3C;
+      margin-bottom: 0.5rem;
+    }
+    .tier-price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #81C784;
+      margin-bottom: 1.2rem;
+    }
+    .tier ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+    .tier li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 1rem;
+      color: #555;
+    }
+    .tier li:before {
+      content: "✓";
+      color: #81C784;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .join-btn {
+      background: #81C784;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 0.7rem;
+    }
+    .join-btn:hover {
+      background: #388E3C;
+    }
+    .compare-table {
+      width: 100%;
+      max-width: 900px;
+      margin: 3vw auto;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px 0 rgba(129,199,132,0.08);
+      overflow: hidden;
+    }
+    .compare-table th, .compare-table td {
+      padding: 1rem 0.7rem;
+      text-align: center;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 1rem;
+    }
+    .compare-table th {
+      background: #C8E6C9;
+      color: #388E3C;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+    }
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+    .compare-table .yes {
+      color: #388E3C;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .compare-table .no {
+      color: #bbb;
+      font-size: 1.2rem;
+    }
+    .faq-section {
+      max-width: 800px;
+      margin: 4vw auto 2vw auto;
+    }
+    .faq-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #388E3C;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 16px 0 rgba(129,199,132,0.08);
+      margin-bottom: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 8px 32px 0 rgba(129,199,132,0.12);
+    }
+    .faq-question {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      color: #388E3C;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-answer {
+      color: #555;
+      font-size: 1rem;
+      display: none;
+      margin-top: 0.5rem;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+    .faq-toggle {
+      font-size: 1.2rem;
+      color: #81C784;
+      margin-left: 0.7rem;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-toggle {
+      transform: rotate(90deg);
+    }
+  </style>
+  <script>
+    // FAQ accordion logic
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+          item.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><span class="ph ph-leaf"></span> Healthy Box Cafe</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="story.html">Chuyện của Healthy Box</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="membership.html" class="active">Thành viên</a></li>
+          <li><a href="index.html#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="membership-hero fade-in-up">
+      <div class="membership-hero-content scale-in">
+        <div class="membership-hero-title">Chính sách thành viên</div>
+        <div class="membership-hero-desc">Trở thành một phần của cộng đồng Healthy Box để nhận ưu đãi, quà tặng và trải nghiệm sống khỏe mỗi ngày.</div>
+      </div>
+    </div>
+    <div class="membership-tiers fade-in-up">
+      <div class="tier bronze scale-in">
+        <div class="tier-icon ph ph-medal"></div>
+        <h3>Thành viên Bronze</h3>
+        <div class="tier-price">Miễn phí</div>
+        <ul>
+          <li>Nhận thông báo menu mới</li>
+          <li>Giảm 5% cho đơn hàng đầu tiên</li>
+          <li>Tham gia workshop nấu ăn healthy</li>
+          <li>Nhận ebook công thức healthy</li>
+        </ul>
+        <button class="join-btn scale-in">Đăng ký ngay</button>
+      </div>
+      <div class="tier silver featured scale-in">
+        <div class="tier-icon ph ph-medal"></div>
+        <h3>Thành viên Silver</h3>
+        <div class="tier-price">199.000đ/tháng</div>
+        <ul>
+          <li>Tất cả quyền lợi Bronze</li>
+          <li>Giảm 10% mọi đơn hàng</li>
+          <li>Free 1 ly đồ uống/tháng</li>
+          <li>Ưu tiên đặt bàn</li>
+          <li>Tham gia sự kiện VIP</li>
+          <li>Nhận quà sinh nhật</li>
+        </ul>
+        <button class="join-btn scale-in">Đăng ký ngay</button>
+      </div>
+      <div class="tier gold scale-in">
+        <div class="tier-icon ph ph-medal"></div>
+        <h3>Thành viên Gold</h3>
+        <div class="tier-price">399.000đ/tháng</div>
+        <ul>
+          <li>Tất cả quyền lợi Silver</li>
+          <li>Giảm 15% mọi đơn hàng</li>
+          <li>Free 3 ly đồ uống/tháng</li>
+          <li>Đặt bàn không giới hạn</li>
+          <li>Tham gia cooking class VIP</li>
+          <li>Nhận quà đặc biệt hàng tháng</li>
+          <li>Hỗ trợ tư vấn dinh dưỡng</li>
+        </ul>
+        <button class="join-btn scale-in">Đăng ký ngay</button>
+      </div>
+    </div>
+    <div class="section-title fade-in-up">So sánh quyền lợi</div>
+    <table class="compare-table fade-in-up">
+      <tr>
+        <th>Quyền lợi</th>
+        <th>Bronze</th>
+        <th>Silver</th>
+        <th>Gold</th>
+      </tr>
+      <tr>
+        <td>Nhận thông báo menu mới</td>
+        <td class="yes">✓</td>
+        <td class="yes">✓</td>
+        <td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td>Giảm giá đơn hàng</td>
+        <td>5% (1 lần)</td>
+        <td>10%</td>
+        <td>15%</td>
+      </tr>
+      <tr>
+        <td>Free đồ uống mỗi tháng</td>
+        <td class="no">–</td>
+        <td class="yes">1 ly</td>
+        <td class="yes">3 ly</td>
+      </tr>
+      <tr>
+        <td>Ưu tiên đặt bàn</td>
+        <td class="no">–</td>
+        <td class="yes">✓</td>
+        <td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td>Tham gia sự kiện VIP</td>
+        <td class="no">–</td>
+        <td class="yes">✓</td>
+        <td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td>Quà sinh nhật</td>
+        <td class="no">–</td>
+        <td class="yes">✓</td>
+        <td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td>Cooking class VIP</td>
+        <td class="no">–</td>
+        <td class="no">–</td>
+        <td class="yes">✓</td>
+      </tr>
+      <tr>
+        <td>Hỗ trợ tư vấn dinh dưỡng</td>
+        <td class="no">–</td>
+        <td class="no">–</td>
+        <td class="yes">✓</td>
+      </tr>
+    </table>
+    <div class="faq-section fade-in-up">
+      <div class="faq-title">Câu hỏi thường gặp</div>
+      <div class="faq-item scale-in">
+        <div class="faq-question">Làm thế nào để đăng ký thành viên?<span class="ph ph-caret-right faq-toggle"></span></div>
+        <div class="faq-answer">Bạn có thể đăng ký trực tiếp tại quán hoặc qua website. Chỉ cần điền thông tin cá nhân và chọn gói membership phù hợp.</div>
+      </div>
+      <div class="faq-item scale-in">
+        <div class="faq-question">Có thể hủy membership bất cứ lúc nào không?<span class="ph ph-caret-right faq-toggle"></span></div>
+        <div class="faq-answer">Có, bạn có thể hủy membership bất cứ lúc nào. Phí sẽ được tính theo ngày sử dụng thực tế.</div>
+      </div>
+      <div class="faq-item scale-in">
+        <div class="faq-question">Điểm tích lũy có hết hạn không?<span class="ph ph-caret-right faq-toggle"></span></div>
+        <div class="faq-answer">Điểm tích lũy có hiệu lực trong 12 tháng kể từ ngày tích lũy.</div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-social">
+      <a href="https://instagram.com/healthyboxcafe" target="_blank"><span class="ph ph-instagram-logo"></span></a>
+      <a href="https://facebook.com/healthyboxcafe" target="_blank"><span class="ph ph-facebook-logo"></span></a>
+      <a href="https://tiktok.com/@healthyboxcafe" target="_blank"><span class="ph ph-tiktok-logo"></span></a>
+    </div>
+    <div class="footer-copy">&copy; 2024 Healthy Box Cafe. All rights reserved.</div>
+  </footer>
+  <script>
+    // Intersection Observer cho animation xuất hiện khi cuộn tới
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in-up, .fade-in, .scale-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html> 
