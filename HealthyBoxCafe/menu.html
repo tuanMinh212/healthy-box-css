@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Healthy Box Cafe</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@1.4.2/src/css/phosphor.css">
+  <style>
+    .menu-hero {
+      background: linear-gradient(120deg, #C8E6C9 60%, #fff 100%);
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0 2rem 2rem;
+      margin-bottom: 2vw;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-hero-content {
+      max-width: 600px;
+      text-align: center;
+      z-index: 2;
+    }
+    .menu-hero-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #388E3C;
+      margin-bottom: 0.7rem;
+    }
+    .menu-hero-desc {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    .menu-filter {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin: 2vw 0 3vw 0;
+      flex-wrap: wrap;
+    }
+    .menu-filter-btn {
+      background: #fff;
+      color: #388E3C;
+      border: 1.5px solid #A5D6A7;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 2rem;
+      padding: 0.7rem 1.7rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, border 0.3s;
+    }
+    .menu-filter-btn.active, .menu-filter-btn:hover {
+      background: #81C784;
+      color: #fff;
+      border: 1.5px solid #388E3C;
+    }
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin: 0 0 4vw 0;
+    }
+    .menu-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 32px 0 rgba(129,199,132,0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+      position: relative;
+    }
+    .menu-card:hover {
+      box-shadow: 0 8px 32px 0 rgba(129,199,132,0.18);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .menu-card img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      background: #C8E6C9;
+    }
+    .menu-card .menu-type {
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      background: #A5D6A7;
+      color: #fff;
+      font-size: 0.9rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      border-radius: 1rem;
+      padding: 0.2rem 1rem;
+      letter-spacing: 0.03em;
+    }
+    .menu-card .product-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #388E3C;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .menu-card .product-desc {
+      color: #555;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 0.7rem;
+    }
+    .menu-card .product-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFD700;
+      margin-bottom: 0.7rem;
+    }
+    .menu-card .btn-secondary {
+      margin-top: 0.5rem;
+    }
+  </style>
+  <script>
+    // Simple filter logic for demo
+    function filterMenu(type) {
+      const cards = document.querySelectorAll('.menu-card');
+      document.querySelectorAll('.menu-filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('filter-' + type).classList.add('active');
+      cards.forEach(card => {
+        if(type === 'all' || card.dataset.type === type) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    window.onload = function() {
+      filterMenu('all');
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><span class="ph ph-leaf"></span> Healthy Box Cafe</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="story.html">Chuyện của Healthy Box</a></li>
+          <li><a href="menu.html" class="active">Menu</a></li>
+          <li><a href="membership.html">Thành viên</a></li>
+          <li><a href="index.html#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="menu-hero fade-in-up">
+      <div class="menu-hero-content scale-in">
+        <div class="menu-hero-title">Menu Healthy Drinks</div>
+        <div class="menu-hero-desc">Khám phá các món cà phê, matcha, nước ép, tráng miệng tốt cho sức khỏe, phù hợp cho người trưởng thành hiện đại.</div>
+      </div>
+    </div>
+    <div class="menu-filter fade-in-up">
+      <button class="menu-filter-btn active scale-in" id="filter-all" onclick="filterMenu('all')">Tất cả</button>
+      <button class="menu-filter-btn scale-in" id="filter-coffee" onclick="filterMenu('coffee')"><span class="ph ph-coffee"></span> Cà phê</button>
+      <button class="menu-filter-btn scale-in" id="filter-matcha" onclick="filterMenu('matcha')"><span class="ph ph-cup"></span> Matcha & Trà</button>
+      <button class="menu-filter-btn scale-in" id="filter-juice" onclick="filterMenu('juice')"><span class="ph ph-drop"></span> Nước ép</button>
+      <button class="menu-filter-btn scale-in" id="filter-dessert" onclick="filterMenu('dessert')"><span class="ph ph-ice-cream"></span> Tráng miệng</button>
+    </div>
+    <div class="menu-list fade-in-up">
+      <div class="menu-card scale-in" data-type="coffee">
+        <span class="menu-type">Cà phê</span>
+        <img src="images/healthy-placeholder.png" alt="Cà phê sữa hạnh nhân">
+        <div class="product-name">Cà phê sữa hạnh nhân</div>
+        <div class="product-desc">Sữa hạnh nhân organic, ít đường, vị béo nhẹ, tốt cho tim mạch.</div>
+        <div class="product-price">45.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="coffee">
+        <span class="menu-type">Cà phê</span>
+        <img src="images/healthy-placeholder.png" alt="Cà phê dừa">
+        <div class="product-name">Cà phê dừa</div>
+        <div class="product-desc">Nước cốt dừa tươi, không đường, vị béo tự nhiên.</div>
+        <div class="product-price">42.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="coffee">
+        <span class="menu-type">Cà phê</span>
+        <img src="images/healthy-placeholder.png" alt="Cà phê yến mạch">
+        <div class="product-name">Cà phê yến mạch</div>
+        <div class="product-desc">Sữa yến mạch, giàu chất xơ, tốt cho tim mạch.</div>
+        <div class="product-price">48.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="matcha">
+        <span class="menu-type">Matcha & Trà</span>
+        <img src="images/healthy-placeholder.png" alt="Matcha latte">
+        <div class="product-name">Matcha latte</div>
+        <div class="product-desc">Matcha Nhật Bản, sữa hạnh nhân, vị ngọt thanh, giàu chất chống oxy hóa.</div>
+        <div class="product-price">52.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="matcha">
+        <span class="menu-type">Matcha & Trà</span>
+        <img src="images/healthy-placeholder.png" alt="Trà xanh detox">
+        <div class="product-name">Trà xanh detox</div>
+        <div class="product-desc">Trà xanh, chanh, mật ong, gừng tươi.</div>
+        <div class="product-price">38.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="juice">
+        <span class="menu-type">Nước ép</span>
+        <img src="images/healthy-placeholder.png" alt="Nước ép rau xanh">
+        <div class="product-name">Nước ép rau xanh</div>
+        <div class="product-desc">Cải xoăn, rau bina, táo, chanh, gừng – detox cơ thể, tăng sức đề kháng.</div>
+        <div class="product-price">55.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="juice">
+        <span class="menu-type">Nước ép</span>
+        <img src="images/healthy-placeholder.png" alt="Sinh tố berry mix">
+        <div class="product-name">Sinh tố berry mix</div>
+        <div class="product-desc">Dâu tây, việt quất, mâm xôi, sữa hạnh nhân.</div>
+        <div class="product-price">58.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="dessert">
+        <span class="menu-type">Tráng miệng</span>
+        <img src="images/healthy-placeholder.png" alt="Sorbet trái cây">
+        <div class="product-name">Sorbet trái cây</div>
+        <div class="product-desc">Xoài, dâu tây, chanh dây, không đường.</div>
+        <div class="product-price">45.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+      <div class="menu-card scale-in" data-type="dessert">
+        <span class="menu-type">Tráng miệng</span>
+        <img src="images/healthy-placeholder.png" alt="Sữa chua trái cây">
+        <div class="product-name">Sữa chua trái cây</div>
+        <div class="product-desc">Sữa chua Hy Lạp, granola, mật ong.</div>
+        <div class="product-price">48.000đ</div>
+        <a href="#" class="btn-secondary scale-in">Đặt ngay</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-social">
+      <a href="https://instagram.com/healthyboxcafe" target="_blank"><span class="ph ph-instagram-logo"></span></a>
+      <a href="https://facebook.com/healthyboxcafe" target="_blank"><span class="ph ph-facebook-logo"></span></a>
+      <a href="https://tiktok.com/@healthyboxcafe" target="_blank"><span class="ph ph-tiktok-logo"></span></a>
+    </div>
+    <div class="footer-copy">&copy; 2024 Healthy Box Cafe. All rights reserved.</div>
+  </footer>
+  <script>
+    // Intersection Observer cho animation xuất hiện khi cuộn tới
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in-up, .fade-in, .scale-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html> 
